@@ -1,0 +1,30 @@
+{% load gravatar %}
+
+<div class="sketch-preview">
+  <div class="sketch-preview__user">
+    <a class="sketch-preview__avatar" href="{% url "auth_profile" sketch.user.username %}">
+      <img src="{% gravatar_url sketch.user.email 200 %}" />
+    </a>
+  </div>
+  <div class="sketch-preview__detail">
+    <a href="{% url "auth_profile" sketch.user.username %}">{{ sketch.user.username|lower }}</a>
+    <h4><a href="{{ sketch.get_absolute_url }}">{{ sketch }}</a></h4>
+    <div class="sketch-preview__canvas">
+      <a href="{{ sketch.get_absolute_url }}">
+        <img
+          width="1280px" height="720px"
+          src="{{ sketch.get_preview_url }}" />
+      </a>
+    </div>
+    {% if sketch.fork_of %}
+    <div class="sketch-preview__fork-of">
+      <h4>Fork of <span>{{ sketch.fork_of }}</span></h4>
+      <a href="{{ sketch.fork_of.get_absolute_url }}">
+        <img
+          width="1280px" height="720px"
+          src="{{ sketch.get_preview_url }}" />
+      </a>
+    </div>
+    {% endif %}
+  </div>
+</div>

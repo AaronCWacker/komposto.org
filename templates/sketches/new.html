@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <form action="{% url "new_sketch" %}" method="post">
+    <h3>{% trans "New Sketch" %}</h3>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="{% trans "Continue" %}">
+  </form>
+{% endblock %}

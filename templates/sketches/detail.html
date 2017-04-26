@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body-tag %}
+<body
+  data-controller="sketchDetail"
+  data-sketch-id="{{ sketch.id }}"
+  data-sandbox-url="{{ sketch.get_sandbox_url }}?nonce={{ nonce }}"
+>
+{% endblock %}
+
+{% block container %}
+<div class="sketch-details">
+  <h4><a href="{% url "auth_profile" sketch.user.username %}">{{ sketch.user.username|lower }}</a></h4>
+  <h3>{{ sketch }}</h3>
+</div>
+<div id="root"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="http://localhost:3000{% static "app.bundle.js" %}"></script>
+{% endblock %}

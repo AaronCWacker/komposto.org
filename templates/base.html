@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>{% block title %}Komposto!{% endblock %}</title>
+  <link
+    href="https://fonts.googleapis.com/css?family=Asar"
+    rel="stylesheet"
+  />
+  <link
+    rel='stylesheet'
+    href='{% static "base.css" %}'
+  />
+</head>
+{% block body-tag %}<body>{%endblock %}
+{% block container %}
+<div class="container">
+  <header>
+    <h1><a href="/">komposto</a></h1>
+    <ul class="navigation">
+      <li><a href="/">home</a></li>
+      <li><a href="{% url 'about' %}">about</a></li>
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'new_sketch' %}"
+        class="new-sketch-button">new sketch</a></li>
+      <li><a href="{% url 'auth_logout' %}">logout [{{ user }}]</a></li>
+      {% else %}
+      <li><a href="{% url 'auth_registration' %}">register</a></li>
+      <li><a href="{% url 'auth_login' %}">login</a></li>
+      {% endif %}
+    </ul>
+    <h2>komposto.org is a sketchbook of self-modifiable programs.</h2>
+    <div class="content">
+      {% block content %}{% endblock %}
+    </div>
+  </header>
+</div>
+{% endblock %}
+{% block scripts %}{% endblock %}
+</body>
+</html>

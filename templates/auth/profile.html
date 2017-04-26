@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+  <h3 class="centered">{{ profile }}'s all sketches</h3>
+  <div class="sketch-collection">
+    {% for sketch in profile.sketches.all %}
+      {% include "sketches/preview.html" %}
+    {% endfor %}
+  </div>
+{% endblock %}

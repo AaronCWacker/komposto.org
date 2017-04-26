@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block content %}
+  <section class="container">
+    <form id="auth-form" action="{% url "auth_login" %}?next={{ next }}" method="post">
+      <h3>{% trans "Login" %}</h3>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="form-footer">
+        <input type="submit" value="{% trans "Login" %}">
+      </div>
+    </form>
+  </section>
+{% endblock %}

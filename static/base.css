@@ -1,0 +1,240 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Asar', sans-serif;
+}
+
+a {
+  color: black;
+}
+
+h1 {
+  font-family: 'Asar', sans-serif;
+  margin: 0;
+  font-size: 3em;
+  padding: 0;
+}
+
+h1 a {
+  color: #FF2E63;
+  text-decoration: none;
+}
+
+h2 {
+  color: #2C3E50;
+  padding: 0 0 10px;
+  margin: 0;
+  line-height: 1.4em;
+  font-weight: normal;
+}
+
+h3 {
+  margin: 10px 0 0;
+  padding: 0;
+  font-size: 1.3em;
+}
+
+h3.centered {
+  text-align: center;
+}
+
+h4 {
+  margin: 0;
+  font-size: 1.6em;
+}
+
+header {
+  padding: 30px 30px 10px;
+}
+
+input, textarea {
+  border: 3px solid black;
+  padding: 4px 10px;
+  display: inline-block;
+  outline: none;
+  font-size: 1.4em;
+  font-family: 'Asar', sans-serif;
+}
+
+input[type='button'],
+input[type='submit'] {
+  cursor: pointer;
+  background: black;
+  color: white;
+  border: none;
+  padding: 4px 20px;
+}
+
+textarea {
+  width: 90%;
+  max-height: 140px;
+}
+
+.form-actions {
+  margin-bottom: 30px;
+}
+
+form ul, .helptext {
+  display: block;
+  color: #cecece;
+}
+
+label {
+  display: block;
+}
+
+.about p {
+  font-size: 1.2em;
+}
+
+.content {
+  margin: 30px 0;
+}
+
+.container {
+  width: 850px;
+  margin: auto;
+}
+
+.navigation {
+  margin: -10px 0 3px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.navigation li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  float: left;
+}
+
+.navigation li a {
+  display: inline-block;
+  margin: 10px 20px;
+  font-size: 1.3em;
+  text-decoration: none;
+  border-bottom: 3px solid #DDDDDD;
+  height: 1.2em;
+  color: #252A34;
+}
+
+.navigation li a.new-sketch-button {
+  /*color: black;*/
+}
+
+.navigation li a:first-child {
+  margin-left: 0;
+}
+
+/* 
+  Sketch Collection
+*/
+.sketch-collection {
+  margin: 10px 0;
+}
+
+/* 
+  Sketch Previes 
+*/
+
+.sketch-preview__detail {
+  padding: 10px;
+  float: left;
+  margin-bottom: 30px;
+}
+
+.sketch-preview__detail h4 {
+  margin-top: -10px;
+}
+
+.sketch-preview__user {
+  padding: 10px 10px 10px 0;
+  float: left;
+}
+
+.sketch-preview__avatar {
+  float: left;
+  margin-top: 3px;
+}
+
+.sketch-preview__avatar img {
+  width: 100px;
+  border-radius: 5px;
+}
+
+.sketch-preview__canvas {
+}
+
+.sketch-preview__canvas img {
+  padding: 5px 0;
+  width: 640px;
+  height: 360px;
+  /*background: #dedede;*/
+  border: none;
+}
+
+.sketch-preview__fork-of img {
+  padding: 5px 0;
+  width: 160px;
+  height: 90px;
+  /*background: #dedede;*/
+  border: none;
+}
+
+.sketch-preview__fork-of h4 {
+  font-size: 1.3em;
+  color: gray;
+}
+
+.sketch-preview__fork-of h4 span {
+  color: black;
+}
+
+/*
+  Help
+*/
+
+.help code {
+  font-family: monospace;
+  background: #eee;
+  display: inline-block;
+  padding: 0 5px;
+  font-weight: bold;
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #333333;
+}
+
+.help h3 {
+  font-size: 1.6em;
+}
+
+/* 
+  Sketch Details
+*/
+
+.sketch-details {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  z-index: 999;
+}
+
+.sketch-details h3 {
+  margin: -10px 0;
+  padding: 0;
+}
+
+.sketch-details h4 {
+  margin: 10px 0 0;
+  padding: 0;
+  font-size: 1.2em;
+  color: #cecece;
+  font-weight: normal;
+}
+
+.sketch-details h4 a {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  {% load static %}
+  <head>
+    <meta charset="utf-8">
+    <title>{{ sketch }}</title>
+    <script>
+      window.__INITIAL_DATA__ = {{ sketch.as_json|safe }}
+    </script>
+  </head>
+  <body>
+    <div id='root'>
+    </div>
+    <script src="http://localhost:3000{% static "sandbox.bundle.js" %}"></script>
+  </body>
+</html>
