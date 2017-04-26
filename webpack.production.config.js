@@ -2,14 +2,14 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   entry: {
     'sandbox': [
-      './src/sandbox'  
+      './client/sandbox'  
     ],
     'app': [
-      './src/app'
-    ]
+      './client/app'
+    ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.js', '.css'],
@@ -21,7 +21,10 @@ module.exports = {
     publicPath: 'http://localhost:3000/static/'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+      include: /\.min\.js$/,
+      minimize: true
+    })
   ],
   module: {
     loaders: [{
@@ -33,7 +36,7 @@ module.exports = {
     },{
       test: /\.js$/,
       loaders: ['react-hot', 'babel'],
-      include: path.join(__dirname, 'src')
+      include: path.join(__dirname, 'client')
     }]
   }
 };
