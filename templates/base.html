@@ -11,6 +11,7 @@
     rel='stylesheet'
     href='{% static "base.css" %}'
   />
+  {% block extra-head %}{% endblock %}
 </head>
 {% block body-tag %}<body>{%endblock %}
 {% block container %}

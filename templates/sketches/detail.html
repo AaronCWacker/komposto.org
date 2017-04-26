@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block title %}{{ sketch }}{% endblock %}
+
+{% block extra-head %}
+<link rel="image_src" href="http://komposto.org{{ sketch.get_preview_url }}" />
+{% endblock %}
+
 {% block body-tag %}
 <body
   data-controller="sketchDetail"
