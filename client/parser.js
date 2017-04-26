@@ -42,37 +42,38 @@ export function parse(lines, command) {
   const modifier = command.slice(0, 1);
   const rest = command.slice(1);
   const commandPosition = command.indexOf(' ');
+  const hasNumberModifier = isNumber(rest.slice(0, commandPosition));
+  // TODO:
+  // Write a proper abstraction for modifiers
   if (modifier === '/') {
-    console.log(modifier, rest);
-    if (isNumber(rest.slice(0, commandPosition))) {
-      console.log(rest.slice(commandPosition))
-      return update(
-        lines,
-        Number(rest.slice(0, commandPosition)),
-        rest.slice(commandPosition)
-      );
-    } else {
-      return lines;
-    }
+    return (
+      hasNumberModifier
+      ? update(
+          lines,
+          Number(rest.slice(0, commandPosition)),
+          rest.slice(commandPosition)
+        )
+      : lines
+    );
   } else if (modifier === '+') {
-    if (isNumber(rest.slice(0, commandPosition))) {
-      return insert(
-        lines,
-        Number(rest.slice(0, commandPosition)),
-        rest.slice(commandPosition)
-      );
-    } else {
-      return lines;
-    }
+    return (
+      hasNumberModifier
+      ? insert(
+          lines,
+          Number(rest.slice(0, commandPosition)),
+          rest.slice(commandPosition)
+        )
+      : lines
+    );
   } else if (modifier === '-') {
-    if (isNumber(rest.slice(0, commandPosition))) {
-      return remove(
-        lines,
-        Number(rest.slice(0, commandPosition))
-      );
-    } else {
-      return lines;
-    }
+    return (
+      hasNumberModifier
+      ? remove(
+         lines,
+         Number(rest.slice(0, commandPosition))
+       )
+      : lines
+    )
   } else {
     return prepend(lines, command)
   }
