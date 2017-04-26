@@ -1,41 +1,5 @@
-### Archetype
+### What is this?
 
-Ascii prototyping tool for web interfaces.
+Komposto is a platform that allows you to create and share self-modifying sketches. It gives you a HTML5 canvas, some probabilistic helpers, and modifier functions that makes it possible to update your code run-time. With this environment, you can create computer programs that modifies itself or even creates another computer program.
 
-### Known issues
-
-Archetype is heavily work in progress. Pull-requests and feedbacks are welcome!
-
-  - There should be an option on rectangle-like elements to make it transparent
-  - Moving behaviour is kind of faulty. It should consider previous position to move it smoothly.
-  - Make optimistic updates and implement shouldComponentUpdate methods for performance.
-  - Type tool is not working on Safari. Something is wrong with `key` property of React's SyntheticEvent.
-
-### Creating a new tool
-
-The toolset is defined on `src/tools.js`. Here is an example preset:
-
-```javascript
-'checkbox': {
-    'label': 'Checkbox',
-    'icon': '[x] checkbox',
-    'typable': true,
-    'mode': modes.DRAW,
-    'nextMode': modes.TYPE,
-    'lastMode': modes.TYPE,
-    'nextTool': 'checkbox',
-    'xOffset': 3,
- },
-```
-
-The rendering behaviour of tools are defined on `src/Renderer.js`.
-
-```javascript
-export function checkbox(text, { content }) {
-  return '[x] ' + (content || ' ');
-}
-```
-
-Online demo:
-
-<http://fatiherikli.github.io/archetype>
+Komposto is an open-source platform. You can send a pull request on [github](http://github.com/fatiherikli/komposto.org) to add new helpers or functions to the environment.
