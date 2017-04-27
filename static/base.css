@@ -220,7 +220,7 @@ label {
 .sketch-preview__fork-of img {
   padding: 5px 0;
   width: 135px;
-  height: 90px;
+  height: 80px;
   /*background: #dedede;*/
   border: none;
 }
@@ -242,7 +242,7 @@ label {
 .sketch-preview__additions img {
   float: left;
   width: 135px;
-  height: 90px;
+  height: 80px;
   margin-right: 15px;
 }
 
