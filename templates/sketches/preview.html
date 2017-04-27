@@ -1,4 +1,5 @@
 {% load gravatar %}
+{% load humanize %}
 
 <div class="sketch-preview">
   <div class="sketch-preview__user">
@@ -7,14 +8,25 @@
     </a>
   </div>
   <div class="sketch-preview__detail">
-    <a href="{% url "auth_profile" sketch.user.username %}">{{ sketch.user.username|lower }}</a>
-    <h4><a href="{{ sketch.get_absolute_url }}">{{ sketch }}</a></h4>
+    <div class="sketch-preview__header">
+      <a href="{% url "auth_profile" sketch.user.username %}">{{ sketch.user.username|lower }}</a>
+      <h4><a href="{{ sketch.get_absolute_url }}">{{ sketch }}</a></h4>
+    </div>
     <div class="sketch-preview__canvas">
       <a href="{{ sketch.get_absolute_url }}">
         <img
           width="1280px" height="720px"
           src="{{ sketch.get_preview_url }}" />
       </a>
+      <div class="sketch-preview__additions">
+        {% for thumb in sketch.get_extra_thumbnails %}
+        {% if thumb.content %}
+        <img
+          width="1080px" height="720px"
+          src="{{ thumb.content.url }}" />
+        {% endif %}
+        {% endfor %}
+      </div>
     </div>
     {% if sketch.fork_of %}
     <div class="sketch-preview__fork-of">
@@ -26,5 +38,8 @@
       </a>
     </div>
     {% endif %}
+    <div class="sketch-preview__date">
+      {{ sketch.date_created|naturaltime }}
+    </div>
   </div>
 </div>

@@ -46,6 +46,12 @@ class Sketch(models.Model):
         if self.snapshots.exists():
             return self.snapshots.latest('id').content.url
 
+    def get_extra_thumbnails(self):
+        if self.snapshots.count() > 1:
+            return self.snapshots.all()[1:5]
+
+        return []
+
     def save(self, *args, **kwargs):
         """
         Make unique slug if it is not given.

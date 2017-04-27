@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Asar', sans-serif;
+
+  /* custom font hack for antialiasing on mobile browsers */
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
 }
 
 a {
@@ -16,12 +20,12 @@ h1 {
 }
 
 h1 a {
-  color: #FF2E63;
+  color: #08D9D6;
   text-decoration: none;
 }
 
 h2 {
-  color: #2C3E50;
+  color: #252A34;
   padding: 0 0 10px;
   margin: 0;
   line-height: 1.4em;
@@ -36,6 +40,27 @@ h3 {
 
 h3.centered {
   text-align: center;
+  font-size: 1.7em;
+}
+
+h3.centered:before {
+  content: "\2014";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  color: #EAEAEA;
+  margin-left: -40px;
+  position: absolute;
+}
+
+h3.centered:after {
+  content: "\2014";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  color: #EAEAEA;
+  margin-left: 10px;
+  position: absolute;
 }
 
 h4 {
@@ -116,6 +141,7 @@ label {
   text-decoration: none;
   border-bottom: 3px solid #DDDDDD;
   height: 1.2em;
+  padding: 0 5px;
   color: #252A34;
 }
 
@@ -137,15 +163,23 @@ label {
 /* 
   Sketch Previes 
 */
+.sketch-preview__header {
+}
 
 .sketch-preview__detail {
-  padding: 10px;
+  margin: 10px;
   float: left;
-  margin-bottom: 30px;
+  margin-bottom: 100px;
+  position: relative;
+  /*border-bottom: 1px solid #ededed;*/
 }
 
 .sketch-preview__detail h4 {
   margin-top: -10px;
+}
+
+.sketch-preview__detail h4 a {
+  text-decoration: none;
 }
 
 .sketch-preview__user {
@@ -163,6 +197,15 @@ label {
   border-radius: 5px;
 }
 
+.sketch-preview__date {
+  color: gray;
+  position: absolute;
+  margin-top: 10px;
+  border-top: 1px solid #EAEAEA;
+  padding: 5px 0;
+  width: 100%;
+}
+
 .sketch-preview__canvas {
 }
 
@@ -176,7 +219,7 @@ label {
 
 .sketch-preview__fork-of img {
   padding: 5px 0;
-  width: 160px;
+  width: 135px;
   height: 90px;
   /*background: #dedede;*/
   border: none;
@@ -189,6 +232,18 @@ label {
 
 .sketch-preview__fork-of h4 span {
   color: black;
+}
+
+.sketch-preview__additions {
+  overflow: hidden;
+  padding-bottom: 30px;
+}
+
+.sketch-preview__additions img {
+  float: left;
+  width: 135px;
+  height: 90px;
+  margin-right: 15px;
 }
 
 /*
